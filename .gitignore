@@ -1,0 +1,18 @@
+# Git ignore	  #
+###################
+*.orig
+*.sass-cache*
+*_TEST.html
+*.BASE.*.html
+*.BACKUP.*.html
+*.LOCAL.*.html
+*.REMOTE.*.html
+
+# OS generated files #
+######################
+.DS_Store*
+thumbs.db
+Icon?
+Thumbs.db
+.CACHED_FILE_GENERATED_BY_CLEARCASE_EVILTWIN_TRIGGER.*
+compass_app_log.txt
