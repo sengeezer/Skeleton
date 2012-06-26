@@ -5,6 +5,17 @@
 * http://www.opensource.org/licenses/mit-license.php
 * 6/20/2012
 */
+/* line 10, scss/layout.scss */
+header, article { padding-top: 15px; }
+
+/* line 14, scss/layout.scss */
+footer p { font-size: 11px; }
+
+/* line 18, scss/layout.scss */
+aside { background-color: #fafafa; }
+/* line 20, scss/layout.scss */
+aside p { font-size: 12px; font-style: italic; }
+
 /* Media Queries */
 /*	@font-face {
 	    font-family: 'FontName';
