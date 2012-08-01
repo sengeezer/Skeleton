@@ -9,6 +9,7 @@
 @import "compass/css3/images";
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
 
 // Reset & Basics (Inspired by E. Meyer)
 
@@ -285,16 +286,11 @@ img.scale-with-grid {
 	height: auto;
 }
 
-// #Buttons
+// Buttons
 
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+@mixin button-basics {
 	background: #eee;
-	@include background-image(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%);
-	/* background: #eee linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); */
+	@include background(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%);
   	border: 1px solid #aaa;
 	border-top: 1px solid #ccc;
 	border-left: 1px solid #ccc;
@@ -304,7 +300,7 @@ input[type="button"] {
 	font-size: 11px;
 	font-weight: bold;
 	text-decoration: none;
-	text-shadow: 0 1px rgba(255, 255, 255, .75);
+	@include text-shadow(0 1px rgba(255, 255, 255, .75));
 	cursor: pointer;
 	margin-bottom: 20px;
 	line-height: normal;
@@ -312,42 +308,93 @@ input[type="button"] {
 	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover {
+@mixin button-basics-hover {
 	color: #222;
 	background: #ddd;
-	@include background-image(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%);
-	/* background: #ddd linear-gradient(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%); */
+	@include background(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%);
 	border: 1px solid #888;
 	border-top: 1px solid #aaa;
 	border-left: 1px solid #aaa;
 }
 
-.button:active,
-button:active,
-input[type="submit"]:active,
-input[type="reset"]:active,
-input[type="button"]:active {
+@mixin button-basics-active {
 	border: 1px solid #666;
 	background: #ccc;
-	@include background-image(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%);
-	/* background: #ccc linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%); */
+	@include background(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%);
 }
 
-.button.full-width,
-button.full-width,
-input[type="submit"].full-width,
-input[type="reset"].full-width,
-input[type="button"].full-width {
+@mixin button-full-width {
 	width: 100%;
 	padding: {
 		left: 0 !important;
 		right: 0 !important;
 	}
 	text-align: center;
+}
+
+.button {
+	@include button-basics;
+	&:hover {
+		@include button-basics-hover;
+	}
+	&:active {
+		@include button-basics-active;
+	}
+	&.full-width {
+		@include button-full-width;
+	}
+}
+
+button {
+	@include button-basics;
+	&:hover {
+		@include button-basics-hover;
+	}
+	&:active {
+		@include button-basics-active;
+	}
+	&.full-width {
+		@include button-full-width;
+	}
+}
+
+input[type="submit"] {
+	@include button-basics;
+	&:hover {
+		@include button-basics-hover;
+	}
+	&:active {
+		@include button-basics-active;
+	}
+	&.full-width {
+		@include button-full-width;
+	}
+}
+
+input[type="reset"] {
+	@include button-basics;
+	&:hover {
+		@include button-basics-hover;
+	}
+	&:active {
+		@include button-basics-active;
+	}
+	&.full-width {
+		@include button-full-width;
+	}
+}
+
+input[type="button"] {
+	@include button-basics;
+	&:hover {
+		@include button-basics-hover;
+	}
+	&:active {
+		@include button-basics-active;
+	}
+	&.full-width {
+		@include button-full-width;
+	}
 }
 
 button::-moz-focus-inner,
@@ -358,19 +405,10 @@ input::-moz-focus-inner {
 
 // Forms
 
-form {
-	margin-bottom: 20px;
-}
+form { margin-bottom: 20px; }
+fieldset { margin-bottom: 20px; }
 
-fieldset {
-	margin-bottom: 20px;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-textarea,
-select {
+@mixin form-basics {
 	border: 1px solid #ccc;
 	padding: 6px 4px;
 	outline: none;
@@ -382,50 +420,67 @@ select {
 	max-width: 100%;
 	display: block;
 	margin-bottom: 20px;
-	background: #fff; }
-
-select {
-	padding: 0;
+	background: #fff;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-textarea:focus {
+@mixin form-basics-focus {
 	border: 1px solid #aaa;
 	color: #444;
  	@include box-shadow(0 0 3px rgba(0,0,0,.2));
-	/* box-shadow:  0 0 3px rgba(0,0,0,.2); */
 }
-	
+
+input[type="text"] {
+	@include form-basics;
+	&:focus {
+		@include form-basics-focus;
+	}
+}
+
+input[type="password"] {
+	@include form-basics;
+	&:focus {
+		@include form-basics-focus;
+	}
+}
+
+input[type="email"] {
+	@include form-basics;
+	&:focus {
+		@include form-basics-focus;
+	}
+}
+
 textarea {
+	@include form-basics;
+	&:focus {
+		@include form-basics-focus;
+	}
 	min-height: 60px;
 }
 
-label,
-legend {
+select {
+	@include form-basics;
+	padding: 0;
+	width: 220px;
+}
+
+label, legend {
 	display: block;
 	font: {
 		weight: bold;
 		size: 13px;
 	}
-}
-
-select {
-	width: 220px;
+	span {
+		font: {
+			weight: normal;
+			size: 13px;
+		}
+		color: #444;
+	}
 }
 
 input[type="checkbox"] {
 	display: inline;
-}
-
-label span,
-legend span {
-	font: {
-		weight: normal;
-		size: 13px;
-	}
-	color: #444;
 }
 
 // Misc
