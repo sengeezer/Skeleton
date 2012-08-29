@@ -18,9 +18,7 @@
 			left: 10px;
 			right: 10px;
 		}
-		&.alpha {
-			margin-left: 0;
-		}
+		&.alpha { margin-left: 0; }
 		&.omega   { margin-right: 0; }
 	}
 	.columns {
@@ -30,18 +28,12 @@
 			left: 10px;
 			right: 10px;
 		}
-		&.alpha {
-			margin-left: 0;
-		}
+		&.alpha { margin-left: 0; }
 		&.omega   { margin-right: 0; }
 	}
 	.one {
-		&.column {
-			width: 40px;
-		}
-		&.columns {
-			width: 40px;
-		}
+		&.column { width: 40px; }
+		&.columns { width: 40px; }
 	}
 	.two.columns { width: 100px; }
 	.three.columns { width: 160px; }
@@ -224,7 +216,13 @@
 
 // Clearing
 
-.container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+.container:after {
+	content: "\0020";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
 
 // Use clearfix class on parent to clear nested columns, or wrap each row of columns in a <div class="row">
 

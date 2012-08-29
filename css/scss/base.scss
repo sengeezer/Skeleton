@@ -31,9 +31,7 @@ ruby, section, summary, time, mark, audio, video {
 }
 
 article, aside, details, figcaption, figure, footer,
-header, hgroup, menu, nav, section {
-	display: block;
-}
+header, hgroup, menu, nav, section { display: block; }
 
 body { line-height: 1; }
 
@@ -215,12 +213,8 @@ a {
 	text-decoration: underline;
 	outline: 0;
 	&:visited { color: #333; text-decoration: underline; outline: 0; }
-	&:hover {
-		color: #000;
-	}
-	&:focus {
-		color: #000;
-	}
+	&:hover { color: #000; }
+	&:focus { color: #000; }
 }
 
 p a,
@@ -297,15 +291,17 @@ img.scale-with-grid {
 	@include border-radius(3px);
 	color: #444;
 	display: inline-block;
-	font-size: 11px;
-	font-weight: bold;
+	font: {
+		family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		size: 11px;
+		weight: bold;
+	}
 	text-decoration: none;
 	@include text-shadow(0 1px rgba(255, 255, 255, .75));
 	cursor: pointer;
 	margin-bottom: 20px;
 	line-height: normal;
 	padding: 8px 10px;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @mixin button-basics-hover {
@@ -334,67 +330,37 @@ img.scale-with-grid {
 
 .button {
 	@include button-basics;
-	&:hover {
-		@include button-basics-hover;
-	}
-	&:active {
-		@include button-basics-active;
-	}
-	&.full-width {
-		@include button-full-width;
-	}
+	&:hover { @include button-basics-hover; }
+	&:active { @include button-basics-active; }
+	&.full-width { @include button-full-width; }
 }
 
 button {
 	@include button-basics;
-	&:hover {
-		@include button-basics-hover;
-	}
-	&:active {
-		@include button-basics-active;
-	}
-	&.full-width {
-		@include button-full-width;
-	}
+	&:hover { @include button-basics-hover; }
+	&:active { @include button-basics-active; }
+	&.full-width { @include button-full-width; }
 }
 
 input[type="submit"] {
 	@include button-basics;
-	&:hover {
-		@include button-basics-hover;
-	}
-	&:active {
-		@include button-basics-active;
-	}
-	&.full-width {
-		@include button-full-width;
-	}
+	&:hover { @include button-basics-hover; }
+	&:active { @include button-basics-active; }
+	&.full-width { @include button-full-width; }
 }
 
 input[type="reset"] {
 	@include button-basics;
-	&:hover {
-		@include button-basics-hover;
-	}
-	&:active {
-		@include button-basics-active;
-	}
-	&.full-width {
-		@include button-full-width;
-	}
+	&:hover { @include button-basics-hover; }
+	&:active { @include button-basics-active; }
+	&.full-width { @include button-full-width; }
 }
 
 input[type="button"] {
 	@include button-basics;
-	&:hover {
-		@include button-basics-hover;
-	}
-	&:active {
-		@include button-basics-active;
-	}
-	&.full-width {
-		@include button-full-width;
-	}
+	&:hover { @include button-basics-hover; }
+	&:active { @include button-basics-active; }
+	&.full-width { @include button-full-width; }
 }
 
 button::-moz-focus-inner,
@@ -405,8 +371,7 @@ input::-moz-focus-inner {
 
 // Forms
 
-form { margin-bottom: 20px; }
-fieldset { margin-bottom: 20px; }
+form, fieldset { margin-bottom: 20px; }
 
 @mixin form-basics {
 	border: 1px solid #ccc;
@@ -431,30 +396,22 @@ fieldset { margin-bottom: 20px; }
 
 input[type="text"] {
 	@include form-basics;
-	&:focus {
-		@include form-basics-focus;
-	}
+	&:focus { @include form-basics-focus; }
 }
 
 input[type="password"] {
 	@include form-basics;
-	&:focus {
-		@include form-basics-focus;
-	}
+	&:focus { @include form-basics-focus; }
 }
 
 input[type="email"] {
 	@include form-basics;
-	&:focus {
-		@include form-basics-focus;
-	}
+	&:focus { @include form-basics-focus; }
 }
 
 textarea {
 	@include form-basics;
-	&:focus {
-		@include form-basics-focus;
-	}
+	&:focus { @include form-basics-focus; }
 	min-height: 60px;
 }
 
@@ -479,9 +436,7 @@ label, legend {
 	}
 }
 
-input[type="checkbox"] {
-	display: inline;
-}
+input[type="checkbox"] { display: inline; }
 
 // Misc
 

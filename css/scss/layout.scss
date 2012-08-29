@@ -12,8 +12,10 @@ footer p { font-size:11px; }
 aside {
 	background-color:#fafafa;
 	p {
-		font-size:12px;
-		font-style:italic;
+		font: {
+			size:12px;
+			style:italic;
+		}
 	}
 }
 
